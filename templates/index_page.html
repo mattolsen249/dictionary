@@ -1,0 +1,109 @@
+﻿{% extends "base_page.html" %}
+
+{% block page-title %}
+Словарь
+{% endblock %}
+
+{% block page-lead %}
+Добро пожаловать в словарь!
+{% endblock %}
+
+{% block content %}
+<div class="container px-4 py-5" id="project-contents">
+    <h2 class="pb-2 border-bottom">Что Вы можете сделать?</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-4">
+        <div class="col d-flex">
+            <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                <svg class="bi" width="1em" height="1em">
+                    <use xlink:href="#cpu-fill"></use>
+                </svg>
+            </div>
+            <div>
+                <h3 class="fs-2">Словарь</h3>
+                <p>Здесь Вы можете посмотреть список добавленных Вами и другими пользователями слов и их переводов.</p>
+                <a href="/terms-list" class="btn btn-primary">Посмотреть</a>
+            </div>
+        </div>
+        <div class="col d-flex">
+            <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                <svg class="bi" width="1em" height="1em">
+                    <use xlink:href="#cpu-fill"></use>
+                </svg>
+            </div>
+            <div>
+                <h3 class="fs-2">Форма для добавления записи в словарь</h3>
+                <p>Заполните короткую форму, чтобы добавить новое слово в словарь!</p>
+                <a href="/add-term" class="btn btn-primary">Заполнить форму</a>
+            </div>
+        </div>
+	    <div class="col d-flex">
+            <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                <svg class="bi" width="1em" height="1em">
+                    <use xlink:href="#cpu-fill"></use>
+                </svg>
+            </div>
+            <div>
+                <h3 class="fs-2">Форма для исправления записи в словаре</h3>
+                <p>Обнаружили ошибку</p>
+                <a href="/add-term" class="btn btn-primary">Исправить форму</a>
+            </div>
+        </div>
+        <div class="col d-flex">
+            <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                <svg class="bi" width="1em" height="1em">
+                    <use xlink:href="#cpu-fill"></use>
+                </svg>
+            </div>
+            <div>
+                <h3 class="fs-2">Статистика</h3>
+                <p>Сколько слов уже есть в словаре? Сколько слов было добавлено за последние 7 дней?</p>
+                <a href="/stats" class="btn btn-primary">
+                    Посмотреть статистику
+                </a>
+            </div>
+        </div>
+    </div>
+    <h2 class="pb-2 border-bottom">Что можете сделать вы?</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-2">
+        <div class="col-lg-4">
+            <h4 class="py-1">Добавить ещё одну форму</h4>
+        </div>
+        <div class="col-lg-8">
+            <p>Чтобы получить максимальную оценку по проекту, нужно две страницы, которые <span class="fst-italic">показывают</span>
+            контент, а две страницы, которые <span class="fst-italic">принимают</span> контент. Одна страница с
+            POST-запросом создана — это <a href="/add-term">форма сбора терминов</a>. Добавьте ещё одну форму и view, обрабатывающий её!</p>
+        </div>
+    </div>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-2">
+        <div class="col-lg-4">
+            <h4 class="py-1">Разнообразить контент</h4>
+        </div>
+        <div class="col-lg-8">
+            <p>Этот проект — про математику. В условии проекта в курсе — иностранные языки. Измените содержимое страниц,
+                чтобы они были полезны в контексте изучения иностранного языка (несколько примеров есть в описании проекта).</p>
+        </div>
+    </div>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-2">
+        <div class="col-lg-4">
+            <h4 class="py-1">Изменить вёрстку и/или дизайн-систему</h4>
+        </div>
+        <div class="col-lg-8">
+            <p>Этот проект использует <a href="https://getbootstrap.com">Bootstrap</a>. Попробуйте другие дизайн-системы, например:
+                <ul>
+                    <li><a href="https://materializecss.com">Materialize</a></li>
+                    <li><a href="https://semantic-ui.com">Semantic UI</a></li>
+                    <li><a href="https://get.foundation/templates.html">Foundation</a></li>
+                </ul>
+            </p>
+            <p>
+                Если же вам хочется оставить Bootstrap — измените вёрстку! Добавьте картинок, замените стили — словом, пробудите
+                внутреннего художника.
+            </p>
+            <p>
+                <span class="fst-italic">Вариант улучшения:</span> как правило, у сайта есть фавикон — маленькая иконка, отображающаяся
+                рядом с названием сайта во вкладке или окне браузера. Сейчас её нет — но вы можете её добавить.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
