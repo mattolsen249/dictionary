@@ -1,45 +1,45 @@
 from django.shortcuts import render
 from django.core.cache import cache
-from . import terms_work
+from . import utils
 
 
 def index(request):
-    return render(request, "index.html")
+    return render(request, "index_page.html")
 
 
-def terms_list(request):
-    terms = terms_work.get_terms_for_table()
-    return render(request, "term_list.html", context={"terms": terms})
+def words_list(request):
+    words = utils.get_words_for_table()
+    return render(request, "show_word_list_page.html", context={"words": words})
 
 
-def add_term(request):
-    return render(request, "term_add.html")
+def add_word(request):
+    return render(request, "add_word_page.html")
 
 
-def send_term(request):
+def send_word(request):
     if request.method == "POST":
         cache.clear()
-        user_name = request.POST.get("name")
-        new_term = request.POST.get("new_term", "")
-        new_definition = request.POST.get("new_definition", "").replace(";", ",")
-        context = {"user": user_name}
-        if len(new_definition) == 0:
+        email = request.POST.get("email")
+        word = request.POST.get("word", "")
+        translation = request.POST.get("translation", "")
+        context = {}
+        if len(word) == 0:
             context["success"] = False
-            context["comment"] = "Описание должно быть не пустым"
-        elif len(new_term) == 0:
+            context["comment"] = "Поле \"Слово\" не должно быть пустым"
+        elif len(translation) == 0:
             context["success"] = False
-            context["comment"] = "Термин должен быть не пустым"
+            context["comment"] = "Поле \"Перевод\" не должно быть пустым"
         else:
             context["success"] = True
-            context["comment"] = "Ваш термин принят"
-            terms_work.write_term(new_term, new_definition)
+            context["comment"] = "Ваша запись принята"
+            utils.write_word(word, translation, email)
         if context["success"]:
             context["success-title"] = ""
-        return render(request, "term_request.html", context)
+        return render(request, "add_word_res_page.html", context)
     else:
-        add_term(request)
+        add_word(request)
 
 
 def show_stats(request):
-    stats = terms_work.get_terms_stats()
-    return render(request, "stats.html", stats)
+    stats = utils.get_words_stats()
+    return render(request, "show_stats_page.html", stats)
