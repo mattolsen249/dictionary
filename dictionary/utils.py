@@ -9,7 +9,7 @@ def get_words_for_table():
     return entries
 
 
-def write_word(word, translation, email):
+def add_word(word, translation, email):
     entry = Dictionary(word=word,
                        translation=translation,
                        added_date=date.today(),
@@ -58,3 +58,8 @@ def get_words_stats():
     return stats
 
 
+def find_word(search_type, search_object):
+    if search_type == 'word':
+        return [entry.translation for entry in Dictionary.objects.filter(word=search_object)]
+    elif search_type == 'translation':
+        return [entry.word for entry in Dictionary.objects.filter(translation=search_object)]

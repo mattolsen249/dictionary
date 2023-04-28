@@ -1,0 +1,44 @@
+{% extends "base_page.html" %}
+
+{% block page-title %}
+{% if success %}
+Успех
+{% else %}
+Неудача
+{% endif %}
+{% endblock %}
+
+{% block page-lead %}
+{% if success %}
+В словаре нашлись соответствующие записи.
+{% else %}
+В словаре не нашлось соответствующих записей.
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="container-sm px-5 py-5" id="term-form-result">
+    {% if success %}
+        {% if search_type_word %}
+            <p>Для слова {{ search_object }} были найдены следующие переводы:</p>
+        {% else %}
+            <p>Для перевода {{ search_object }} были найдены следующие слова:</p>
+        {% endif %}
+        {% for result in results %}
+            <p>{{ result }}</p>
+        {% endfor %}
+        <h2 class="pb-2 border-bottom">Что Вы хотите делать дальше?</h2>
+        <ul>
+            <li>продолжить работать с <a href="/find-term">переводчиком</a>,</li>
+            <li>вернуться на <a href="/">главную</a></li>
+        </ul>
+
+    {% else %}
+        <h2 class="pb-2 border-bottom">Что Вы хотите делать дальше?</h2>
+        <ul>
+            <li><a href="/add-term">добавить</a> отсутствующее слово в Словарь+,</li>
+            <li>вернуться на <a href="/">главную</a></li>
+        </ul>
+    {% endif %}
+</div>
+{% endblock %}
