@@ -19,26 +19,33 @@
 {% block content %}
 <div class="container-sm px-5 py-5" id="term-form-result">
     {% if success %}
+    <div class="rounded-3" style="background-color: white">
         {% if search_type_word %}
-            <p>Для слова {{ search_object }} были найдены следующие переводы:</p>
+            <h3 style="margin-left: 20px; margin-top: 20px">Для слова "{{ search_object }}" были найдены следующие переводы:</h3>
         {% else %}
-            <p>Для перевода {{ search_object }} были найдены следующие слова:</p>
+            <h3  style="margin-left: 20px; margin-top: 20px">Для перевода "{{ search_object }}" были найдены следующие слова:</h3>
         {% endif %}
         {% for result in results %}
-            <p>{{ result }}</p>
+            <ul>
+                <li style="margin-left: 30px">
+                    <h4>{{ result }}</h4>
+                </li>
+            </ul>
         {% endfor %}
-        <h2 class="pb-2 border-bottom">Что Вы хотите делать дальше?</h2>
+    </div>
+    <h2 class="pb-2 border-bottom">Что Вы хотите делать дальше?</h2>
         <ul>
-            <li>продолжить работать с <a href="/find-term">переводчиком</a>,</li>
+            <li>продолжить работать с <a href="/find-word">переводчиком</a>,</li>
             <li>вернуться на <a href="/">главную</a></li>
         </ul>
-
     {% else %}
+    <div class="rounded-3" style="background-color: white">
         <h2 class="pb-2 border-bottom">Что Вы хотите делать дальше?</h2>
         <ul>
             <li><a href="/add-term">добавить</a> отсутствующее слово в Словарь+,</li>
             <li>вернуться на <a href="/">главную</a></li>
         </ul>
+    </div>
     {% endif %}
 </div>
 {% endblock %}

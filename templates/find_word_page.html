@@ -13,21 +13,24 @@
 <div class="container-sm px-5 py-5" id="term-form">
     <form method="post">
         <div class="row px-5 py-2">
-            <h3>Укажите тип поиска</h3>
-        </div>
-        <select name="search_type">
-            <option value="word">По слову</option>
-            <option value="translation">По переводу</option>
-        </select>
-        <div class="row px-5 py-2">
-            <h3>Что искать?</h3>
+            <h2>Настройки поиска</h2>
         </div>
         <div class="row px-5 py-2">
+            <h3>Тип поиска:</h3>
+            <select name="search_type" style="margin-left: 50px">
+                <option value="word">по слову</option>
+                <option value="translation">по переводу</option>
+            </select>
+        </div>
+
+        <div class="row px-5 py-2">
+            <h3>Объект поиска:</h3>
             <div class="col-md-4">
-                <label for="new_term">Напишите искомое слово/перевод</label>
+                <p>Напишите искомое слово/перевод<p>
                 <input type="text" class="form-control input-lg" name="search_object" id="search_object" value required>
             </div>
         </div>
+
         <div class="row px-5 py-2">
             <button type="submit" class="btn btn-primary" formaction="/send-word-translate">Найти</button>
         </div>
