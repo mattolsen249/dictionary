@@ -1,12 +1,16 @@
 {% extends "base_page.html" %}
 
 {% block page-title %}
-Добавить запись
+Добавить
+{% endblock %}
+
+{% block page-lead %}
+Ниже представлена форма для добавления новой записи в словарь.
+Укажите e-mail, чтобы другие пользователи при необходимости могли с Вами связаться.
 {% endblock %}
 
 {% block content %}
-<div class="container-sm px-5 py-5" id="term-form"
-     xmlns="http://www.w3.org/1999/html">
+<div class="container-sm px-5 py-5" id="term-form" xmlns="http://www.w3.org/1999/html">
     <form method="post">
         <div class="row px-5 py-2">
             <div class="col-md-6">
@@ -28,7 +32,7 @@
             </div>
         </div>
         <div class="row px-5 py-2">
-            <button type="submit" class="btn btn-primary" formaction="/send-word">Отправить</button>
+            <button type="submit" class="btn btn-primary" formaction="/send-word-add">Добавить</button>
         </div>
     </form>
 </div>
